@@ -32,11 +32,11 @@ const Home =(props)=>{
     // Getting city information from api
     const getWetherDetails =(cityName) => {
         if (!cityName) return
-        const apiURL = "http://dataservice.accuweather.com/locations/v1/cities/search?apikey="+apiKey+"&q=" + cityName+""
+        const apiURL = "/locations/v1/cities/search?apikey="+apiKey+"&q=" + cityName+""
         axios.get(apiURL).then((res) => {
           const cityKey= res.data[0].Key
           setDataCityName(res.data[0])
-          const apiURLtwo= "http://dataservice.accuweather.com/forecasts/v1/daily/5day/"+cityKey+"?apikey="+apiKey+""
+          const apiURLtwo= "/forecasts/v1/daily/5day/"+cityKey+"?apikey="+apiKey+""
           axios.get(apiURLtwo).then((res)=>{
 
             setdataCityInfo(res.data)
@@ -64,7 +64,7 @@ const Home =(props)=>{
       
       
       useEffect(() => { 
-        const apiUrl = "http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey="+apiKey+"=31.99663%2C34.82840"
+        const apiUrl = "/locations/v1/cities/geoposition/search?apikey="+apiKey+"=31.99663%2C34.82840"
         axios.get(apiUrl).then((res)=>{
               myCity=res.data.LocalizedName;
               }).catch((err)=>{
