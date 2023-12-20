@@ -13,7 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
 export let arrFavorit=[];
 export let myCity="";
-export const apiKey="HkBJNHfJv4c7JojxdsCJtLGgnBYRLlCd&q"
+export const apiKey="aONSow9gTD22hfAw8Ylz0CpRCh5Qhzym"
 
 
 

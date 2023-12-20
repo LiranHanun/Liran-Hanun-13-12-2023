@@ -5,6 +5,7 @@ import WeatherCards from "../Cards/WeatherCard";
 import NavBar from "../NavBarF/NavBar";
 import { userState} from "react";
 import axios from "axios";
+import App from "../App";
 import { FavoirtCardCityName } from "../favoritC/favoritCard";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -14,6 +15,7 @@ var myCity=""
 
 
 const Home =(props)=>{
+   
     
     const [dataCityName, setDataCityName] = useState()
     const [dataCityInfo, setdataCityInfo] = useState()
@@ -21,19 +23,19 @@ const Home =(props)=>{
     const [lat,setLat]=useState()
     const [lon,setLon]=useState()
 
-    useEffect(() => {
-      navigator.geolocation.getCurrentPosition((postion)=>{
+    
+    useEffect( () => {
+       navigator.geolocation.getCurrentPosition((postion)=>{
         setLat(postion.coords.latitude)
         setLon(postion.coords.longitude)
       })
-    })
+    },[])
     
     
     // Getting city information from api
     const getWetherDetails =(cityName) => {
         if (!cityName) return
         const apiURL = "http://dataservice.accuweather.com/locations/v1/cities/search?apikey="+apiKey+"&q=" + cityName+""
-        console.log(apiURL)
         axios.get(apiURL).then((res) => {
           const cityKey= res.data[0].Key
           setDataCityName(res.data[0])
@@ -42,7 +44,6 @@ const Home =(props)=>{
 
             setdataCityInfo(res.data)
           }).catch((err)=>{
-            console.log(err)
             toast.error("Could Not Find This City Name !", {
               
               position: toast.POSITION.TOP_CENTER,
@@ -50,7 +51,6 @@ const Home =(props)=>{
           })
           
         }).catch((err) => {
-          console.log(err)
           toast.error("Could Not Find This City Name !", {
             position: toast.POSITION.TOP_CENTER,
           });
@@ -67,14 +67,17 @@ const Home =(props)=>{
       }
       
       
-      useEffect(() => { 
-        const apiUrl = "http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey="+apiKey+"=31.99663%2C34.82840"
-        axios.get(apiUrl).then((res)=>{
+      useEffect( () => {
+        
+        const apiUrl = "http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey="+apiKey+"="+lat+"%2C"+lon
+        console.log(apiUrl)
+        
+         axios.get(apiUrl).then((res)=>{
               myCity=res.data.LocalizedName;
               }).catch((err)=>{
-               console.log("Cant find Your Location")
+                getWetherDetails("tel aviv")
               })
-      })
+      },[])
    
     return(
         
