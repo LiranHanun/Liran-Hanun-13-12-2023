@@ -1,0 +1,61 @@
+
+.topnav {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  
+
+ 
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #2196F3;
+    color: white;
+  }
+  
+  .topnav .search-container {
+      margin-top: 50px;
+  }
+  
+  .topnav input[type=text] {
+    padding: 10px;
+    margin-top: 8px;
+    font-size: 25px;
+    border: black 1px solid;
+    border-radius: 50px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  
+  .topnav .search-container button {
+    float: right;
+    padding: 8px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .topnav .search-container button:hover {
+    background: #e97878;
+  }
+  .topnav .search-container button {
+    background: #286ce2;
+    border-radius: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+ 
+
+
+
+

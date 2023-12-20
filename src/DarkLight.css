@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+  --color-primary: #474747;
+  --color-danger: #FF0060;
+  --color-success: #1B9C85;
+  --color-warning: #F7D060;
+  
+  --color-info-dark: #7d8da1;
+  --color-dark: #363949;
+  --color-light: rgba(25, 26, 33, 0.18);
+  --color-dark-variant: #b0b8c0;
+
+  
+
+  --card-border-radius: 2rem;
+  --border-radius-1: 0.4rem;
+  --border-radius-2: 1.2rem;
+
+  --card-padding: 1.8rem;
+  --padding-1: 1.2rem;
+
+  --box-shadow: 0 2rem 3rem var(--color-light);
+  --color-background:#dddcdc;
+  --color-text: #dddcdc;
+  --color-cardinfo: #cdcdcd;
+  --color-cardCloudes: #e6e6e6;
+  --color-CardBackG: #f6f6f6;
+  --color-text: #1d1d1d;
+}

@@ -1,24 +1,54 @@
-import logo from './logo.svg';
+import React, { useState ,useEffect} from 'react'
 import './App.css';
+import "./DarkLight.css"
+import {BrowserRouter,Routes,Route} from "react-router-dom"
+import {SearchBar} from "react-bootstrap"
+import "bootstrap/dist/css/bootstrap.min.css"
+import WeatherCard from './Cards/WeatherCard.js';
+import Home from './HomeF/Home.js';
+import NavBar from './NavBarF/NavBar';
+import Favorites from './FavoritesF/Favorites.js'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios";
+export let arrFavorit=[];
+export let myCity="";
+export const apiKey="HkBJNHfJv4c7JojxdsCJtLGgnBYRLlCd&q"
+
+
+
 
 function App() {
+  
+  
+  const [changeWeatherType,setChangeWeatherType]= useState();
+
+
+
+  
+
+  const toggler = ()=> { 
+      changeWeatherType ? (setChangeWeatherType(false)) : (setChangeWeatherType(true));
+      
+  }
+
+  
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <div className='main'>
+    <NavBar toggler={toggler}/>
+    
+
+      <Routes >
+        <Route exact path="/" element={<Home changeWeatherType={changeWeatherType}/>}  />
+        <Route path="/Favorites" element={<Favorites changeWeatherType={changeWeatherType} className="FavoritPage"/>} />
+      </Routes>
+    
+    
+      </div>
+    </>
+
   );
 }
 
