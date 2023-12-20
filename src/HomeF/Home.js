@@ -42,12 +42,15 @@ const Home =(props)=>{
 
             setdataCityInfo(res.data)
           }).catch((err)=>{
+            console.log(err)
             toast.error("Could Not Find This City Name !", {
+              
               position: toast.POSITION.TOP_CENTER,
             });
           })
           
         }).catch((err) => {
+          console.log(err)
           toast.error("Could Not Find This City Name !", {
             position: toast.POSITION.TOP_CENTER,
           });
